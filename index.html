@@ -1208,6 +1208,30 @@ tbody tr:hover td{
 
 
 
+/* PREVENT OPENING LINKS IN NEW TAB */
+
+document.querySelectorAll(
+    'nav.primary a, .mobile-nav a, footer a'
+).forEach(function(link) {
+
+    link.addEventListener('click', function(e) {
+
+        if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            return false;
+        }
+
+    }, true);
+
+    link.addEventListener('auxclick', function(e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return false;
+    }, true);
+
+});   
+
 function openPage(page) {
     const pages = {
         C_T: "https://snapcreations.github.io/C_T/",
