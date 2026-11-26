@@ -1207,6 +1207,25 @@ tbody tr:hover td{
 <script>
 
 
+
+ document.addEventListener("click", function(event) {
+    if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return false;
+    }
+}, true);
+
+
+document.addEventListener("auxclick", function(event) {
+    if (event.button === 1) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        return false;
+    }
+}, true);  
 /* BLOCK CTRL + CLICK */
 
 document.addEventListener("click", function(event) {
